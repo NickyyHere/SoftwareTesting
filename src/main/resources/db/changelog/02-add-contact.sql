@@ -1,0 +1,7 @@
+CREATE TABLE contacts (
+  id BIGSERIAL PRIMARY KEY,
+  student_id BIGINT REFERENCES person(id) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL
+);

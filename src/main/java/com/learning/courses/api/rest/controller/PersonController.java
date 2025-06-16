@@ -1,8 +1,6 @@
 package com.learning.courses.api.rest.controller;
 
-import com.learning.courses.dto.CreatePersonDTO;
-import com.learning.courses.dto.DegreeDTO;
-import com.learning.courses.dto.PersonDTO;
+import com.learning.courses.dto.*;
 import com.learning.courses.service.PersonCourseService;
 import com.learning.courses.service.PersonService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,6 +8,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -44,4 +44,14 @@ class PersonController {
     personCourseService.gradeStudent(degreeDTO);
   }
 
+  @PostMapping("/contact")
+  @Operation(summary = "Add contact")
+  public void addContact(CreateContactDTO createContactDTO) {
+    personService.addContact(createContactDTO);
+  }
+  @GetMapping("/contact/{id}")
+  @Operation(summary = "Get student contacts")
+  public List<ContactDTO> getContacts(@PathVariable Long id) {
+    return personService.getStudentContacts(id);
+  }
 }

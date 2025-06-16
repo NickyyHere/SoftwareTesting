@@ -35,11 +35,13 @@ public class Person {
 
   @ManyToMany
   @JoinTable(name = "person_course",
-      joinColumns = @JoinColumn(name = "person_id"),
-      inverseJoinColumns = @JoinColumn(name = "course_id"))
+          joinColumns = @JoinColumn(name = "person_id"),
+          inverseJoinColumns = @JoinColumn(name = "course_id"))
   private List<Course> assignedCourses;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "tutor")
   private List<Course> tutoringCourses;
 
+  @OneToMany(cascade = CascadeType.ALL)
+  private List<Contact> contacts;
 }
