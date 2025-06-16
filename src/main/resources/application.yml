@@ -13,8 +13,8 @@ spring:
   jpa:
     database: POSTGRESQL
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: validate
+    #hibernate:
+    #  ddl-auto: validate
     properties:
       hibernate:
         hbm2ddl:
